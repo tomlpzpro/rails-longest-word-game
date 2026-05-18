@@ -1,0 +1,14 @@
+<h1>Games#new</h1>
+<ul>
+  <% @letters.each do |letter| %>
+  <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<form action="/score" method="post" data-turbo="false">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<%= hidden_field_tag :letters, @letters %>
+<label for="word">Put your biggest word with letters given</label>
+<input type="text" id="word" name="word">
+<button type="submit">Play</button>
+</form>
